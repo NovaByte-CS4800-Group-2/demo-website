@@ -2,9 +2,18 @@
 
 ## Prerequisites
 
-- Make sure you have [Node.js](https://nodejs.org/) installed (Recommended: Latest LTS version)
-- node -v and npm -v to check if properly installed
-- node app_name.js to run in the terminal
+- Node.js
+
+  - Make sure you have [Node.js](https://nodejs.org/) installed (Recommended: Latest LTS version)
+  - node -v and npm -v to check if properly installed
+  - node app_name.js to run in the terminal
+
+- MYSQL
+
+  - Make sure you have [MYSQL](https://www.mysql.com/) installed
+  - mysql -u root -p
+    - This command will prompt for your password and open mysql in the terminal
+    - type **exit** to quit
 
 ---
 
@@ -36,3 +45,39 @@ This will read the package.json and package-lock.json files and install the nece
   - add "bootstrap": "^5.2.3" in the package.json file under 'dependencies'
 
 Now in order to run the server type: **npm run dev**
+
+---
+
+## SETTING UP FRONT END
+
+### Cloning from Git
+
+After cloning the repo from git, there are a few steps you need to follow:
+
+- install mysql2 ( mysql2 package is a drop-in replacement for mysql that aims to be faster and more efficient)
+  - npm i mysyspl2
+- install dotenv
+  - npm i dotenv
+
+This will install necessary dependencies and node_modules.
+
+Now navigate to database.js and notice the process.env variables in the pool.
+You will need to create your own values for those variables in a seperate file.
+
+create an .env file, and write your information in this format
+
+MYSQL_HOST = '127.0.0.1'
+MYSQL_USER = 'root'
+MYSQL_PASSWORD = **write your own password here**
+MYSQL_DATABASE = 'notes_app'
+
+<ins>These values may change later but follow this for now</ins>
+
+### using notes_app
+
+As a sample database we will use notes_app. Open up mysql in the terminal (refer to prerequisites to see how)
+and copy the code from schema.sql and paste. You can then type **show databases;** and if you see notes_app listed everything worked correctly!
+
+### Thunder Client
+
+Install the Thunder Client extension on vs code to test the code and make sure the right values are being retrived from the database!
