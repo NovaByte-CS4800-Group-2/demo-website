@@ -92,7 +92,7 @@ Install the Thunder Client extension on vs code to test the code and make sure t
 You should now see a thunderbolt on the panel on the left side. Click new request and write
 http://localhost:8080/
 
-\*\*The number after the colon depends on the port, in this case it is 8080
+\*\*The number after the colon depends on the port, in this case it is 8080<br/>
 \*\*After the last dash you add whatever extension
 
 If you only retrieve from the database than you can select 'get' on the left side on the http
