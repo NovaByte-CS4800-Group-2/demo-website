@@ -90,7 +90,9 @@ and copy the code from schema.sql and paste. You can then type **show databases;
 Install the Thunder Client extension on vs code to test the code and make sure the right values are being retrived from the database!
 
 You should now see a thunderbolt on the panel on the left side. Click new request and write
-http://localhost:[server number here, 8080 in this case]/[whatever extension]
+http://localhost:8080/[whatever extension]
+
+\*\*the number after the colon depends on the port, in this case it is 8080
 
 If you only retrieve from the database than you can select 'get' on the left side on the http
 If you want to insert into the database then you can select 'post' on the left side of the http
