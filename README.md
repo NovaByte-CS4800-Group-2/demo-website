@@ -1,8 +1,16 @@
 # INSTRUCTIONS FOR INSTALLMENT
 
-## FRONT END
+## Prerequisites
 
-### FIRST TIME CREATING
+- Make sure you have [Node.js](https://nodejs.org/) installed (Recommended: Latest LTS version)
+- node -v and npm -v to check if properly installed
+- node app_name.js to run in the terminal
+
+---
+
+## SETTING UP FRONT END
+
+### If you're setting up the project for the first time, use Vite:
 
 - npm create vite@4.1.0
 
