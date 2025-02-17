@@ -27,5 +27,5 @@ function App() {
 // ---------------All within the project folder-----------------
 // npm create vite@4.1.0 ------> write the name then select react -> typescript
 // npm i bootstrap@5.2.3
-// npm run dec to start the server
+// npm run dev to start the server
 export default App; // export as default object from this module
