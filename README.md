@@ -45,7 +45,6 @@ This will read the package.json and package-lock.json files and install the nece
   - add "bootstrap": "^5.2.3" in the package.json file under 'dependencies'
 
 Now in order to run the server type: **npm run dev**
-control -> c to stop the server from running
 
 ---
 
@@ -74,12 +73,6 @@ MYSQL_DATABASE = 'notes_app'<br/>
 
 <ins>These values may change later but follow this for now</ins>
 
-### running the program
-
-node [file_name].js
-
-control -> c to stop the server from running
-
 ### using notes_app
 
 As a sample database we will use notes_app. Open up mysql in the terminal (refer to prerequisites to see how)
@@ -88,14 +81,3 @@ and copy the code from schema.sql and paste. You can then type **show databases;
 ### Thunder Client
 
 Install the Thunder Client extension on vs code to test the code and make sure the right values are being retrived from the database!
-
-You should now see a thunderbolt on the panel on the left side. Click new request and write
-http://localhost:8080/
-
-\*\*The number after the colon depends on the port, in this case it is 8080<br/>
-\*\*After the last dash you add whatever extension
-
-If you only retrieve from the database than you can select 'get' on the left side on the http<br/>
-If you want to insert into the database then you can select 'post' on the left side of the http
-
-Press send and you should recieve some output in the response section
