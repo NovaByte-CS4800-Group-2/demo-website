@@ -95,7 +95,7 @@ http://localhost:8080/
 \*\*The number after the colon depends on the port, in this case it is 8080<br/>
 \*\*After the last dash you add whatever extension
 
-If you only retrieve from the database than you can select 'get' on the left side on the http
+If you only retrieve from the database than you can select 'get' on the left side on the http<br/>
 If you want to insert into the database then you can select 'post' on the left side of the http
 
 Press send and you should recieve some output in the response section
