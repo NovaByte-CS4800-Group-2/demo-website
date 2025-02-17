@@ -66,10 +66,10 @@ You will need to create your own values for those variables in a seperate file.
 
 create an .env file, and write your information in this format
 
-MYSQL_HOST = '127.0.0.1'
-MYSQL_USER = 'root'
-MYSQL_PASSWORD = **write your own password here**
-MYSQL_DATABASE = 'notes_app'
+MYSQL_HOST = '127.0.0.1'<br/>
+MYSQL_USER = 'root'<br/>
+MYSQL_PASSWORD = **write your own password here**<br/>
+MYSQL_DATABASE = 'notes_app'<br/>
 
 <ins>These values may change later but follow this for now</ins>
 
