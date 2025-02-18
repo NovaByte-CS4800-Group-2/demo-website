@@ -55,7 +55,7 @@ Now in order to run the server type: **npm run dev**
 After cloning the repo from git, there are a few steps you need to follow:
 
 - install mysql2 ( mysql2 package is a drop-in replacement for mysql that aims to be faster and more efficient)
-  - npm i mysyspl2
+  - npm i mysql2
 - install dotenv
   - npm i dotenv
 
