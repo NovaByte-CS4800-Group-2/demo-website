@@ -11,6 +11,7 @@ function App() {
 
   return (
     <div>
+      <script type ="module" src = "Index.js"> </script>
       <Alert>
         Hello <span>World</span>
       </Alert>
