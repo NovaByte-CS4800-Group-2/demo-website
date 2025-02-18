@@ -1,6 +1,6 @@
 # INSTRUCTIONS FOR INSTALLMENT
 
-## Prerequisites
+## Resources
 
 - Node.js
 
@@ -14,6 +14,8 @@
   - mysql -u root -p
     - This command will prompt for your password and open mysql in the terminal
     - type **exit** to quit
+
+- [bootstrap](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
 
 ---
 
