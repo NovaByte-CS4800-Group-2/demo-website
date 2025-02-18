@@ -49,7 +49,7 @@ control -> c to stop the server from running
 
 ---
 
-## SETTING UP FRONT END
+## SETTING UP BACK END
 
 ### Cloning from Git
 
