@@ -1,0 +1,30 @@
+backend:
+    functions:
+        - entry: database.js
+          handler: handler
+          name: express
+          path: .
+          type: httpServer
+    language:
+        name: js
+        runtime: nodejs20.x
+    path: back_end
+    scripts:
+        deploy:
+            - npm install
+        local:
+            - npm install
+frontend:
+    environment:
+        VITE_API_URL_EXPRESS: ${{ backend.functions.express.url }}
+    path: front_end
+    publish: dist
+    scripts:
+        build:
+            - npm run build
+        deploy:
+            - npm install
+    subdomain: demo-website
+name: demo-website
+region: us-east-1
+yamlVersion: 2
