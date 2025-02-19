@@ -1,13 +1,13 @@
 import { useState } from "react";
-import Alert from "./components/Alert";
 import Button from "./components/Button";
-import ListGroup from "./components/ListGroup";
 
 // Define the Note type
 type Note = {
-  id: number;
-  title: string;
-  contents: string;
+  StudentID: number;
+  StudentName: string;
+  CourseNum: string;
+  CourseName: string;
+  Grade: string;
 };
 
 function App() {
@@ -19,7 +19,8 @@ function App() {
       const response = await fetch("http://localhost:8080/notes"); // Replace with your backend URL
       if (!response.ok) throw new Error("Failed to fetch notes");
 
-      const data: Note[] = await response.json(); // Type the response correctly
+      // const data: Note[] explicitly tells TypeScript that data is an array of Note objects.
+      const data: Note[] = await response.json(); // converts the fetched response from JSON format to a JavaScript object
       setNotes(data);
       console.log("Fetched notes:", data);
     } catch (error) {
@@ -30,11 +31,13 @@ function App() {
   return (
     <div>
       <Button onClick={fetchNotes}>Click me!</Button>
+
       {/* Display fetched notes */}
       <ul>
         {notes.map((note) => (
-          <li key={note.id}>
-            {note.title}: {note.contents}
+          <li key={note.StudentID}>
+            <strong>{note.StudentName}</strong> - {note.CourseNum} (
+            {note.CourseName}) - Grade: {note.Grade}
           </li>
         ))}
       </ul>
