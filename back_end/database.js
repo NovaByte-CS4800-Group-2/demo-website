@@ -13,7 +13,8 @@ const pool = mysql.createPool({
 
 export async function getNotes() 
 {
-  const [rows] = await pool.query("SELECT * FROM notes")
+  const [rows] = await pool.query("SELECT * FROM test1")
+  console.log(rows);
   return rows
 }
 
@@ -29,3 +30,5 @@ export async function createNote(title, content)
   const id = result.insertId
   return getNote(id)
 }
+
+getNotes(); 
