@@ -60,6 +60,8 @@ After cloning the repo from git, there are a few steps you need to follow:
   - npm i mysql2
 - install dotenv
   - npm i dotenv
+- install cors
+  - npm i express cors
 
 This will install necessary dependencies and node_modules.
 
@@ -68,15 +70,10 @@ You will need to create your own values for those variables in a seperate file.
 
 create an .env file, and write your information in this format
 
-MYSQL_HOST = 'pyrodb.c92o6k68amz4.us-east-2.rds.amazonaws.com'<br/>
-MYSQL_USER = 'admin'<br/>
-MYSQL_PASSWORD = 'Server123SQL'<br/>
-MYSQL_DATABASE = 'testSchema'<br/>
-
-### using notes_app
-
-As a sample database we will use notes_app. Open up mysql in the terminal (refer to prerequisites to see how)
-and copy the code from schema.sql and paste. You can then type **show databases;** and if you see notes_app listed everything worked correctly!
+MYSQL_HOST = <br/>
+MYSQL_USER = <br/>
+MYSQL_PASSWORD = <br/>
+MYSQL_DATABASE = <br/>
 
 ### Thunder Client
 
