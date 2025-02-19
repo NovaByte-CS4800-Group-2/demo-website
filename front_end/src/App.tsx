@@ -13,7 +13,7 @@ type Note = {
 
 function App() {
   const [notes, setNotes] = useState<Note[]>([]);
-  const [showTable, setShowTable] = useState(false);
+  const [showTable, setShowTable] = useState(false); // to call this in the className of table : className = {showTable ? 'table-visible' : 'table-hidden'}
 
 
   // Function to fetch notes from Express
@@ -41,7 +41,7 @@ function App() {
 
   const [isVisible, setIsVisible] = useState(false);
   const showHeader = () => {
-    setIsVisible(!isVisible);
+    setIsVisible(true);
   };
 
   const twoClicks = () => {
@@ -52,7 +52,7 @@ function App() {
   return (
     <div>
       <button className= "customButton" onClick={twoClicks} >Load database</button>
-      <table >
+      <table>
           <thead className={isVisible ? 'header-visible': 'header-hidden'}>
             <tr>
               <th>Student ID</th>
