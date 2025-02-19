@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Button from "./components/Button";
+import './App.css';
 
 // Define the Note type
 type Note = {
@@ -41,6 +42,24 @@ function App() {
           </li>
         ))}
       </ul>
+      <table>
+        <thead>
+          <tr>
+            <th>Student Name</th>
+            <th>Course Number</th>
+            <th>Course Name</th>
+            <th>Grade</th>
+          </tr>
+          <body>
+            <tr>
+              <td>John</td>
+              <td>30</td>
+              <td>USA</td>
+            </tr>
+          </body>
+        </thead>
+        
+      </table>
     </div>
   );
 }

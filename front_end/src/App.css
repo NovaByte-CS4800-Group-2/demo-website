@@ -1,0 +1,20 @@
+* {
+    background: #FCF4F0;;
+}
+div {
+    margin: auto;
+
+}
+
+bColor {
+    color: black;
+}
+
+table {
+    width: 100vw;
+    border: 1px; 
+}
+
+tr{
+    border-color: black;
+}
