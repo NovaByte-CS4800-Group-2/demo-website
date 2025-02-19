@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import "./Button.css";
 
 interface ButtonProps {
   children: ReactNode;
@@ -7,7 +8,7 @@ interface ButtonProps {
 
 const Button = ({ children, onClick }: ButtonProps) => {
   return (
-    <button type="button" className="btn btn-outline-primary" onClick={onClick}>
+    <button type="button" className="btn" data-bs-toggle="button">
       {children}
     </button>
   );
