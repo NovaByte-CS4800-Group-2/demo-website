@@ -35,14 +35,15 @@ function App() {
   })}
 
 
-  const [isVisible, setIsVisible] = useState(false); 
-  const showHeader = () => {
-    setIsVisible(!isVisible);
+  const [showHeader, setShowHeader] = useState(false); 
+  
+  const showingHeader = () => {
+    setShowHeader(!showHeader);
   };
 
 
   const twoClicks = () => {
-    showHeader(); 
+    showingHeader(); 
     fetchNotes(); 
   }
 
@@ -51,7 +52,7 @@ function App() {
     <div>
       <button className= "customButton" onClick={twoClicks} >Load database</button>
       <table>
-          <thead>
+          <thead className={showHeader ? 'header-visible': 'header-hidden'}>
             <tr>
               <th>Student ID</th>
               <th>Student Name</th>
@@ -73,6 +74,7 @@ function App() {
           </tbody>
         </table>
     </div>
+    
   );
 }
 

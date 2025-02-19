@@ -62,3 +62,11 @@ table {
     top: 50px;
     left: 45%;
 }
+
+.header-hidden{
+    display: none;
+}
+
+.header-visible {
+    display: table-header-group;
+}
