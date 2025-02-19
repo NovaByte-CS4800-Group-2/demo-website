@@ -20,15 +20,16 @@ export async function getNotes()
 
 export async function getNote(id)
 {
-  const [rows] = await pool.query('SELECT * FROM notes WHERE id = ?', [id]) // prepared statement, always use ? to be safe
+  const [rows] = await pool.query('SELECT * FROM test1 WHERE id = ?', [id]) // prepared statement, always use ? to be safe
   return rows[0]
 }
 
-export async function createNote(title, content) 
+async function createNote(title, content) 
 {
-  const [result] = await pool.query('INSERT INTO notes (title, contents) VALUES (?, ?)', [title, content])
+  const [result] = await pool.query('INSERT INTO test1 (title, contents) VALUES (?, ?)', [title, content])
   const id = result.insertId
   return getNote(id)
 }
+
 
 getNotes(); 
