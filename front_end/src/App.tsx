@@ -3,17 +3,18 @@ import Alert from "./components/Alert";
 import Button from "./components/Button";
 import { getNotes } from ".../back_end/database.js";
 
-
 function App() {
   let items = ["New York", "Tokyo", "London", "Paris"];
   const handleSelectItem = (item: string) => {
     console.log(item);
-    getNotes(); 
+    getNotes();
   };
 
   return (
     <div>
-      <script type ="module" src = "Index.js"> </script>
+      <script type="module" src="Index.js">
+        {" "}
+      </script>
       <Alert>
         Hello <span>World</span>
       </Alert>
@@ -26,7 +27,6 @@ function App() {
     </div>
   );
 }
-
 
 // ---------------All within the project folder-----------------
 // npm create vite@4.1.0 ------> write the name then select react -> typescript
