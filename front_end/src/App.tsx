@@ -36,6 +36,16 @@ function App() {
     });
   }
 
+  const [isVisible, setIsVisible] = useState(false);
+  const showHeader = () => {
+    setIsVisible(!isVisible);
+  };
+
+  const twoClicks = () => {
+    showHeader();
+    fetchNotes();
+  };
+
   return (
     <div>
       <button className="customButton" onClick={fetchNotes}>
