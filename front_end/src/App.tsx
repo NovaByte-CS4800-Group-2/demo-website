@@ -51,16 +51,15 @@ function App() {
 
   return (
     <div>
-      <button className="customButton" onClick={twoClicks}>Load Database! 
-      </button>
-      <table>
-        <thead>
-          <tr>
-            <th>Student ID</th>
-            <th>Student Name</th>
-            <th>Course Number</th>
-            <th>Course Name</th>
-            <th>Grade</th>
+      <button className= "customButton" onClick={twoClicks} >Load database</button>
+      <table >
+          <thead className={isVisible ? 'header-visible': 'header-hidden'}>
+            <tr>
+              <th>Student ID</th>
+              <th>Student Name</th>
+              <th>Course Number</th>
+              <th>Course Name</th>
+              <th>Grade</th>
           </tr>
         </thead>
         <tbody>
