@@ -1,20 +1,58 @@
 * {
-    background: #FCF4F0;;
-}
-div {
-    margin: auto;
-
-}
-
-bColor {
-    color: black;
+    background: #FCF4F0;
+    flex-shrink: 0;
+    font-family: "Playfair Display", serif;
 }
 
 table {
-    width: 100vw;
-    border: 1px; 
+    border-collapse: collapse; 
+    width: 80vw;
+    margin-left: auto;
+    margin-right: auto; 
+    margin-top: 100px;
+    
 }
 
 tr{
     border-color: black;
+}
+
+th, td{
+    padding-left: 100px; 
+    text-align: left;
+    border: 1px solid black;
+    width: 100vw;
+    text-align: left;
+    color: #574545;
+    border-collapse: collapse; 
+}
+
+th {
+    background-color: #BABD8D;;
+    font-weight: bold;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 22px;
+}
+
+
+td{
+    font-size: 20px;
+    padding-top: 10px;
+    padding-left: 15x;
+    padding-top: 5px; 
+    padding-bottom: 5px;
+    color: #574545;
+    
+}
+
+table {
+    border: 1px solid black; /* Adds a black border around the table */
+    border-collapse: collapse; /* Ensures borders are merged between cells */
+}
+
+.customButton {
+    color: black;
+    padding: 20px;
+    
 }

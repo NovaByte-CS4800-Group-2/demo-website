@@ -29,37 +29,37 @@ function App() {
     }
   };
 
+  {notes.map((note) => {
+    const studentID = note.StudentID; 
+    const studentName = note.StudentName; 
+  })}
+
+
   return (
     <div>
-      <Button onClick={fetchNotes}>Click me!</Button>
-
-      {/* Display fetched notes */}
-      <ul>
-        {notes.map((note) => (
-          <li key={note.StudentID}>
-            <strong>{note.StudentName}</strong> - {note.CourseNum} (
-            {note.CourseName}) - Grade: {note.Grade}
-          </li>
-        ))}
-      </ul>
+      <button className= "customButton" onClick={fetchNotes}>Click me!</button>
       <table>
-        <thead>
-          <tr>
-            <th>Student Name</th>
-            <th>Course Number</th>
-            <th>Course Name</th>
-            <th>Grade</th>
-          </tr>
-          <body>
+          <thead>
             <tr>
-              <td>John</td>
-              <td>30</td>
-              <td>USA</td>
+              <th>Student ID</th>
+              <th>Student Name</th>
+              <th>Course Number</th>
+              <th>Course Name</th>
+              <th>Grade</th>
             </tr>
-          </body>
-        </thead>
-        
-      </table>
+          </thead>
+          <tbody>
+            {notes.map((note) => (
+              <tr key={note.StudentID}>
+                <td>{note.StudentID}</td>
+                <td>{note.StudentName}</td>
+                <td>{note.CourseName}</td>
+                <td>{note.CourseNum}</td>
+                <td>{note.Grade}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
     </div>
   );
 }
