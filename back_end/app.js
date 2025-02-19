@@ -1,10 +1,12 @@
 import express from 'express'
+import cors from "cors"
 
 import {getNotes, getNote, createNote} from './database.js'
 
 const app = express()
 
 app.use(express.json()) // any json.body will be accepted and passed through req.body
+app.use(cors());
 
 app.get('/notes', async (req, res) => {
   const notes = await getNotes()
@@ -28,6 +30,7 @@ app.use((err, req, res, next) => {
   res.status(500).send('Something broke!')
 })
 
-app.listen(8080, () => {
-  console.log('Server is running on port 8080')
+const port = 8080;
+app.listen(port, () => {
+  console.log('Server is running on port ' + port)
 })

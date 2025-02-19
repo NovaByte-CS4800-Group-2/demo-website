@@ -1,33 +1,45 @@
-import ListGroup from "./components/ListGroup"; // always import code from other files at the top of the file
+import { useState } from "react";
 import Alert from "./components/Alert";
 import Button from "./components/Button";
+import ListGroup from "./components/ListGroup";
+
+// Define the Note type
+type Note = {
+  id: number;
+  title: string;
+  contents: string;
+};
 
 function App() {
-  let items = ["New York", "Tokyo", "London", "Paris"];
-  const handleSelectItem = (item: string) => {
-    console.log(item);
+  const [notes, setNotes] = useState<Note[]>([]);
+
+  // Function to fetch notes from Express
+  const fetchNotes = async () => {
+    try {
+      const response = await fetch("http://localhost:8080/notes"); // Replace with your backend URL
+      if (!response.ok) throw new Error("Failed to fetch notes");
+
+      const data: Note[] = await response.json(); // Type the response correctly
+      setNotes(data);
+      console.log("Fetched notes:", data);
+    } catch (error) {
+      console.error("Error fetching notes:", error);
+    }
   };
 
   return (
     <div>
-      <script type="module" src="Index.js">
-        {" "}
-      </script>
-      <Alert>
-        Hello <span>World</span>
-      </Alert>
-      <ListGroup
-        items={items}
-        heading="Cities"
-        onSelectItem={handleSelectItem}
-      ></ListGroup>
-      <Button> Click me! </Button>
+      <Button onClick={fetchNotes}>Click me!</Button>
+      {/* Display fetched notes */}
+      <ul>
+        {notes.map((note) => (
+          <li key={note.id}>
+            {note.title}: {note.contents}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
 
-// ---------------All within the project folder-----------------
-// npm create vite@4.1.0 ------> write the name then select react -> typescript
-// npm i bootstrap@5.2.3
-// npm run dev to start the server
-export default App; // export as default object from this module
+export default App;

@@ -68,12 +68,10 @@ You will need to create your own values for those variables in a seperate file.
 
 create an .env file, and write your information in this format
 
-MYSQL_HOST = '127.0.0.1'<br/>
-MYSQL_USER = 'root'<br/>
-MYSQL_PASSWORD = **write your own password here**<br/>
-MYSQL_DATABASE = 'notes_app'<br/>
-
-<ins>These values may change later but follow this for now</ins>
+MYSQL_HOST = 'pyrodb.c92o6k68amz4.us-east-2.rds.amazonaws.com'<br/>
+MYSQL_USER = 'admin'<br/>
+MYSQL_PASSWORD = 'Server123SQL'<br/>
+MYSQL_DATABASE = 'testSchema'<br/>
 
 ### using notes_app
 
