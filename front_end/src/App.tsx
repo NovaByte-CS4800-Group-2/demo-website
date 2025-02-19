@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Button from "./components/Button";
-import './App.css';
+import "./App.css";
 
 // Define the Note type
 type Note = {
@@ -13,7 +13,6 @@ type Note = {
 
 function App() {
   const [notes, setNotes] = useState<Note[]>([]);
-  const [showHeader, setShowHeader] = useState(false); 
   const [showTable, setShowTable] = useState(false);
 
 
@@ -33,57 +32,51 @@ function App() {
     setShowTable(!showTable)
   };
 
-  {notes.map((note) => {
-    const studentID = note.StudentID; 
-    const studentName = note.StudentName; 
-  })}
+  {
+    notes.map((note) => {
+      const studentID = note.StudentID;
+      const studentName = note.StudentName;
+    });
+  }
 
-
-  const showingHeader = () => {
-    setShowHeader(!showHeader);
+  const [isVisible, setIsVisible] = useState(false);
+  const showHeader = () => {
+    setIsVisible(!isVisible);
   };
 
-  const showingTable  = () => {
-    setShowTable(!showTable); 
-  }
-
-
   const twoClicks = () => {
-    showingHeader(); 
-    showingTable(); 
-    fetchNotes(); 
-  }
+    showHeader();
+    fetchNotes();
+  };
 
-  
   return (
     <div>
-      <button className= "customButton" onClick={twoClicks} >Load database</button>
-      <table className= {showTable ?'table-visible' : 'table-hidden' } >
-          <thead className={showHeader ? 'header-visible': 'header-hidden'}>
-            <tr>
-              <th>Student ID</th>
-              <th>Student Name</th>
-              <th>Course Number</th>
-              <th>Course Name</th>
-              <th>Grade</th>
+      <button className="customButton" onClick={twoClicks}>Load Database! 
+      </button>
+      <table>
+        <thead>
+          <tr>
+            <th>Student ID</th>
+            <th>Student Name</th>
+            <th>Course Number</th>
+            <th>Course Name</th>
+            <th>Grade</th>
+          </tr>
+        </thead>
+        <tbody>
+          {notes.map((note) => (
+            <tr key={note.StudentID}>
+              <td>{note.StudentID}</td>
+              <td>{note.StudentName}</td>
+              <td>{note.CourseName}</td>
+              <td>{note.CourseNum}</td>
+              <td>{note.Grade}</td>
             </tr>
-          </thead>
-          <tbody>
-            {notes.map((note) => (
-              <tr key={note.StudentID}>
-                <td>{note.StudentID}</td>
-                <td>{note.StudentName}</td>
-                <td>{note.CourseName}</td>
-                <td>{note.CourseNum}</td>
-                <td>{note.Grade}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 }
-
-
 
 export default App;
