@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Button from "./components/Button";
-import './App.css';
+import "./App.css";
 
 // Define the Note type
 type Note = {
@@ -29,53 +29,42 @@ function App() {
     }
   };
 
-  {notes.map((note) => {
-    const studentID = note.StudentID; 
-    const studentName = note.StudentName; 
-  })}
-
-
-  const [isVisible, setIsVisible] = useState(false); 
-  const showHeader = () => {
-    setIsVisible(!isVisible);
-  };
-
-
-  const twoClicks = () => {
-    showHeader(); 
-    fetchNotes(); 
+  {
+    notes.map((note) => {
+      const studentID = note.StudentID;
+      const studentName = note.StudentName;
+    });
   }
 
-  
   return (
     <div>
-      <button className= "customButton" onClick={twoClicks} >Load database</button>
+      <button className="customButton" onClick={fetchNotes}>
+        Click me!
+      </button>
       <table>
-          <thead>
-            <tr>
-              <th>Student ID</th>
-              <th>Student Name</th>
-              <th>Course Number</th>
-              <th>Course Name</th>
-              <th>Grade</th>
+        <thead>
+          <tr>
+            <th>Student ID</th>
+            <th>Student Name</th>
+            <th>Course Number</th>
+            <th>Course Name</th>
+            <th>Grade</th>
+          </tr>
+        </thead>
+        <tbody>
+          {notes.map((note) => (
+            <tr key={note.StudentID}>
+              <td>{note.StudentID}</td>
+              <td>{note.StudentName}</td>
+              <td>{note.CourseName}</td>
+              <td>{note.CourseNum}</td>
+              <td>{note.Grade}</td>
             </tr>
-          </thead>
-          <tbody>
-            {notes.map((note) => (
-              <tr key={note.StudentID}>
-                <td>{note.StudentID}</td>
-                <td>{note.StudentName}</td>
-                <td>{note.CourseName}</td>
-                <td>{note.CourseNum}</td>
-                <td>{note.Grade}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 }
-
-
 
 export default App;
