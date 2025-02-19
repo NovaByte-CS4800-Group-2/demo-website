@@ -40,7 +40,7 @@ function App() {
 
   const [isVisible, setIsVisible] = useState(false);
   const showHeader = () => {
-    setIsVisible(!isVisible);
+    setIsVisible(true);
   };
 
   const twoClicks = () => {
