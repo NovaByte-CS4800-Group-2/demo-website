@@ -13,6 +13,9 @@ type Note = {
 
 function App() {
   const [notes, setNotes] = useState<Note[]>([]);
+  const [showHeader, setShowHeader] = useState(false); 
+  const [showTable, setShowTable] = useState(false);
+
 
   // Function to fetch notes from Express
   const fetchNotes = async () => {
@@ -27,6 +30,7 @@ function App() {
     } catch (error) {
       console.error("Error fetching notes:", error);
     }
+    setShowTable(!showTable)
   };
 
   {notes.map((note) => {
@@ -35,15 +39,18 @@ function App() {
   })}
 
 
-  const [showHeader, setShowHeader] = useState(false); 
-  
   const showingHeader = () => {
     setShowHeader(!showHeader);
   };
 
+  const showingTable  = () => {
+    setShowTable(!showTable); 
+  }
+
 
   const twoClicks = () => {
     showingHeader(); 
+    showingTable(); 
     fetchNotes(); 
   }
 
@@ -51,7 +58,7 @@ function App() {
   return (
     <div>
       <button className= "customButton" onClick={twoClicks} >Load database</button>
-      <table>
+      <table className= {showTable ?'table-visible' : 'table-hidden' } >
           <thead className={showHeader ? 'header-visible': 'header-hidden'}>
             <tr>
               <th>Student ID</th>
@@ -74,7 +81,6 @@ function App() {
           </tbody>
         </table>
     </div>
-    
   );
 }
 
