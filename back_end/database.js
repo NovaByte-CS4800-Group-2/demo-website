@@ -24,7 +24,7 @@ export async function getNote(id)
   return rows[0]
 }
 
-async function createNote(title, content) 
+export async function createNote(title, content) 
 {
   const [result] = await pool.query('INSERT INTO test1 (title, contents) VALUES (?, ?)', [title, content])
   const id = result.insertId
