@@ -35,9 +35,21 @@ function App() {
   })}
 
 
+  const [isVisible, setIsVisible] = useState(false); 
+  const showHeader = () => {
+    setIsVisible(!isVisible);
+  };
+
+
+  const twoClicks = () => {
+    showHeader(); 
+    fetchNotes(); 
+  }
+
+  
   return (
     <div>
-      <button className= "customButton" onClick={fetchNotes}>Click me!</button>
+      <button className= "customButton" onClick={twoClicks} >Load database</button>
       <table>
           <thead>
             <tr>
@@ -63,5 +75,7 @@ function App() {
     </div>
   );
 }
+
+
 
 export default App;
