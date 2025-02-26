@@ -1,27 +1,99 @@
 import express from 'express'
 import cors from "cors"
 
-import {getNotes, getNote, createNote} from './database.js'
+import users from "./table_fetching/users.js";
+import notifications from "./table_fetching/notifications.js";
+import posts from "./table_fetching/posts.js";
+import Subforums from './table_fetching/subforums.js';
+import Comments from './table_fetching/comments.js';
 
 const app = express()
 
 app.use(express.json()) // any json.body will be accepted and passed through req.body
 app.use(cors());
 
-app.get('/notes', async (req, res) => {
-  const notes = await getNotes()
+app.get('/profiles', async (req, res) => {
+  const notes = await users.getProfiles()
   res.send(notes)
 })
 
-app.get('/notes/:id', async (req, res) => {
+app.get('/profiles/:id', async (req, res) => {
   const id = req.params.id
-  const note = await getNote(id)
+  const note = await users.getProfile(id)
   res.send(note)
 })
 
-app.post('/notes', async (req, res) => {
+app.post('/profiles', async (req, res) => {
   const {title, content} = req.body
-  const note = await createNote(title, content)
+  const note = await users.createProfile(title, content)
+  res.status(201).send(note)
+})
+
+app.get('/notifications', async (req, res) => {
+  const notes = await notifications.getNotifications()
+  res.send(notes)
+})
+
+app.get('/notifications/:id', async (req, res) => {
+  const id = req.params.id
+  const note = await notifications.getNotification(id)
+  res.send(note)
+})
+
+app.post('/notifications', async (req, res) => {
+  const {title, content} = req.body
+  const note = await notifications.createNotification(title, content)
+  res.status(201).send(note)
+})
+
+app.get('/posts', async (req, res) => {
+  const notes = await posts.getPosts()
+  res.send(notes)
+})  
+
+app.get('/posts/:id', async (req, res) => {
+  const id = req.params.id
+  const note = await posts.getPost(id)
+  res.send(note)
+})
+
+app.post('/posts', async (req, res) => {
+  const {title, content} = req.body
+  const note = await posts.createPost(title, content)
+  res.status(201).send(note)
+})
+
+app.get('/subforums', async (req, res) => {
+  const notes = await Subforums.getSubforums()
+  res.send(notes)
+})
+
+app.get('/subforums/:id', async (req, res) => {
+  const id = req.params.id
+  const note = await Subforums.getSubforum(id)
+  res.send(note)
+})
+
+app.post('/subforums', async (req, res) => {
+  const {title, content} = req.body
+  const note = await Subforums.createSubforum(title, content)
+  res.status(201).send(note)
+})
+
+app.get('/comments', async (req, res) => {
+  const notes = await Comments.getComments()
+  res.send(notes)
+})
+
+app.get('/comments/:id', async (req, res) => {
+  const id = req.params.id
+  const note = await Comments.getComment(id)
+  res.send(note)
+})
+
+app.post('/comments', async (req, res) => {
+  const {title, content} = req.body
+  const note = await Comments.createComment(title, content)
   res.status(201).send(note)
 })
 
