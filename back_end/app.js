@@ -99,18 +99,18 @@ app.post('/comments', async (req, res) => {
   res.status(201).send(note)
 })
 
-app.get('/resorces', async (req, res) => {
+app.get('/resources', async (req, res) => {
   const notes = await Resources.getResources()
   res.send(notes)
 })
 
-app.get('/resorces/:id', async (req, res) => {
+app.get('/resources/:id', async (req, res) => {
   const id = req.params.id
   const note = await Resources.getResource(id)
   res.send(note)
 })
 
-app.post('/resorces', async (req, res) => {
+app.post('/resources', async (req, res) => {
   const {title, content} = req.body
   const note = await Resources.createResource(title, content)
   res.status(201).send(note)

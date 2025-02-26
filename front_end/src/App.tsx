@@ -35,7 +35,7 @@ function App() {
         <option value="profiles">Profiles</option>
         <option value="notifications">Notifications</option>
         <option value="posts">Posts</option>
-        <option value="sumforums">Sub Forums</option>
+        <option value="subforums">Sub Forums</option>
         <option value="comments">Comments</option>
         <option value="resources">Resources</option>
         <option value="matching_request_forms">Matching Request Forms</option>
