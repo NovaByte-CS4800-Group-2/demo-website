@@ -6,6 +6,8 @@ import notifications from "./table_fetching/notifications.js";
 import posts from "./table_fetching/posts.js";
 import Subforums from './table_fetching/subforums.js';
 import Comments from './table_fetching/comments.js';
+import Resources from './table_fetching/resources.js';
+import matching_request_forms from './table_fetching/matching_request_forms.js';
 
 const app = express()
 
@@ -94,6 +96,40 @@ app.get('/comments/:id', async (req, res) => {
 app.post('/comments', async (req, res) => {
   const {title, content} = req.body
   const note = await Comments.createComment(title, content)
+  res.status(201).send(note)
+})
+
+app.get('/resorces', async (req, res) => {
+  const notes = await Resources.getResources()
+  res.send(notes)
+})
+
+app.get('/resorces/:id', async (req, res) => {
+  const id = req.params.id
+  const note = await Resources.getResource(id)
+  res.send(note)
+})
+
+app.post('/resorces', async (req, res) => {
+  const {title, content} = req.body
+  const note = await Resources.createResource(title, content)
+  res.status(201).send(note)
+})
+
+app.get('/matching_request_forms', async (req, res) => {
+  const notes = await matching_request_forms.getMatching()
+  res.send(notes)
+})
+
+app.get('/matching_request_forms/:id', async (req, res) => {
+  const id = req.params.id
+  const note = await matching_request_forms.getMatch(id)
+  res.send(note)
+})
+
+app.post('/matching_request_forms', async (req, res) => {
+  const {title, content} = req.body
+  const note = await matching_request_forms.createMatch(title, content)
   res.status(201).send(note)
 })
 
