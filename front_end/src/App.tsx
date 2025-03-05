@@ -39,6 +39,9 @@ function App() {
         <option value="comments">Comments</option>
         <option value="resources">Resources</option>
         <option value="matching_request_forms">Matching Request Forms</option>
+        <option value="content">Content</option>
+        <option value="votes">Votes</option>
+        <option value="media">Media</option>
         {/* Add more tables here */}
       </select>
 
@@ -61,7 +64,11 @@ function App() {
             {data.map((row, index) => (
               <tr key={index}>
                 {Object.values(row).map((value, idx) => (
-                  <td key={idx}>{value}</td> // Generate table cells dynamically
+                  <td key={idx}>
+                    {typeof value === "object" && value !== null
+                      ? JSON.stringify(value) // Convert objects to a string for display
+                      : value}
+                  </td>
                 ))}
               </tr>
             ))}

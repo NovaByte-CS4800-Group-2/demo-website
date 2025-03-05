@@ -8,6 +8,9 @@ import Subforums from './table_fetching/subforums.js';
 import Comments from './table_fetching/comments.js';
 import Resources from './table_fetching/resources.js';
 import matching_request_forms from './table_fetching/matching_request_forms.js';
+import Contents from './table_fetching/contents.js';
+import Votes from './table_fetching/votes.js';
+import Media from './table_fetching/media.js';
 
 const app = express()
 
@@ -130,6 +133,57 @@ app.get('/matching_request_forms/:id', async (req, res) => {
 app.post('/matching_request_forms', async (req, res) => {
   const {title, content} = req.body
   const note = await matching_request_forms.createMatch(title, content)
+  res.status(201).send(note)
+})
+
+app.get('/content', async (req, res) => {
+  const notes = await Contents.getContents()
+  res.send(notes)
+})
+
+app.get('/content/:id', async (req, res) => {
+  const id = req.params.id
+  const note = await Contents.getContent(id)
+  res.send(note)
+})
+
+app.post('/content', async (req, res) => {
+  const {title, content} = req.body
+  const note = await Contents.createContent(title, content)
+  res.status(201).send(note)
+})
+
+app.get('/votes', async (req, res) => {
+  const notes = await Votes.getVotes()
+  res.send(notes)
+})
+
+app.get('/votes/:id', async (req, res) => {
+  const id = req.params.id
+  const note = await Votes.getVote(id)
+  res.send(note)
+})
+
+app.post('/votes', async (req, res) => {
+  const {title, content} = req.body
+  const note = await Votes.createVote(title, content)
+  res.status(201).send(note)
+})
+
+app.get('/media', async (req, res) => {
+  const notes = await Media.getMedia()
+  res.send(notes)
+})
+
+app.get('/media/:id', async (req, res) => {
+  const id = req.params.id
+  const note = await Media.getMedium(id)
+  res.send(note)
+})
+
+app.post('/media', async (req, res) => {
+  const {title, content} = req.body
+  const note = await Media.createMedium(title, content)
   res.status(201).send(note)
 })
 

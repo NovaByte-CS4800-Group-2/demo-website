@@ -2,8 +2,8 @@ import mysql from 'mysql2'
 
 import dotenv from 'dotenv' // values for the envoirmental variables are stored in a .env file, run 'npm i dotenv' command
 
-import subforums from "./table_fetching/subforums.js";
-import Resources from './table_fetching/resources.js';
+
+import Media from './table_fetching/media.js';
 dotenv.config()
 
 // pool is a collection of collections to a database
@@ -16,5 +16,4 @@ const pool = mysql.createPool({
 
 export default pool;
 
-subforums.getSubforums(); 
-Resources.getResources();
+Media.getMedia();
